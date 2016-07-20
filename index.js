@@ -9,4 +9,4 @@ module.exports = {
     'no-eq-null': [0],
     'no-use-before-define': [1]
   }
-}
+};

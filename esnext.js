@@ -11,4 +11,4 @@ module.exports = {
     'comma-dangle': [2, 'only-multiline'],
     'babel/arrow-parens': [2, 'always']
   }
-}
+};

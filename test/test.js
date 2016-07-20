@@ -3,7 +3,7 @@ import isPlainObj from 'is-plain-obj'
 import eslint from 'eslint'
 import tempWrite from 'temp-write'
 
-const fixture = `'use strict';\nconst x = true;\n\nif (x) {\n  console.log();\n}\n`;
+const fixture = `'use strict';\nconst x = true;\n\nif (x) {\n  console.log();\n}\n`
 
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
@@ -16,6 +16,7 @@ function runEslint(str, conf) {
 
 test('main', (t) => {
   const conf = require('../')
+
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
   t.is(runEslint(fixture, conf).length, 0)
@@ -23,6 +24,7 @@ test('main', (t) => {
 
 test('browser', (t) => {
   const conf = require('../browser')
+
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
   t.is(runEslint(fixture, conf).length, 0)
@@ -30,6 +32,7 @@ test('browser', (t) => {
 
 test('esnext', (t) => {
   const conf = require('../esnext')
+
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
@@ -39,6 +42,7 @@ test('esnext', (t) => {
 
 test('ava', (t) => {
   const conf = require('../ava')
+
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 

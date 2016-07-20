@@ -1,0 +1,60 @@
+{
+  "name": "eslint-config-mxo",
+  "description": "ESLint shareable config for XO with 2-space indent and some other sane tweaks",
+  "version": "0.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:forivall/eslint-config-mxo.git"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "author": "Jordan Klassen <forivall@gmail.com>",
+  "keywords": [
+    "❤️",
+    "space",
+    "spaces",
+    "eslintconfig",
+    "xo",
+    "xoxo",
+    "hugs",
+    "lint",
+    "linter",
+    "jshint",
+    "jslint",
+    "eslint",
+    "validate",
+    "code style",
+    "standard",
+    "check",
+    "checker",
+    "verify",
+    "hint"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "files": [
+    "index.js",
+    "esnext.js",
+    "browser.js",
+    "ava.js"
+  ],
+  "dependencies": {
+    "eslint-config-xo-space": "^0.14.0"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-eslint": "^6.1.2",
+    "eslint": "^2.9.1",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^1.11.1",
+    "is-plain-obj": "^1.1.0",
+    "temp-write": "^2.1.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=2.9.0"
+  }
+}

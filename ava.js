@@ -13,6 +13,8 @@ module.exports = {
     'babel/arrow-parens': [2, 'always'],
     'semi': [2, 'never'],
     'semi-spacing': [2, {before: false, after: true}],
-    'import/extensions': [1]
+    'import/extensions': [1],
+    'max-lines': [0],
+    'no-unused-vars': [1]
   }
 };

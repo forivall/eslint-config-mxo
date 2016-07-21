@@ -5,7 +5,7 @@
 
 [![build status][ti]][t]
 
-🎵_Mixmaster Hugs_🤗
+🎵 _Mixmaster Hugs_ 🤗
 
 ## Installation
 
@@ -15,7 +15,26 @@ npm install --save-dev eslint-config-mxo
 
 ## Usage
 
-Add some ESLint config to your `package.json`:
+Add some XO config to your `package.json`:
+```json
+{
+  "name": "my-awesome-project",
+  "xo": {
+    "extends": "mxo",
+    "overrides": [
+      {
+        "files": [
+          "test/*.test.js",
+          "test/!(helpers|fixtures)/**/*.test.js"
+        ],
+        "extends": "mxo/ava"
+      }
+    ]
+  }
+}
+```
+
+Or, using just `eslint`, add some ESLint config to your `package.json`:
 
 ```json
 {

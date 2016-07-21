@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-mxo",
   "description": "ESLint shareable config for XO with 2-space indent and some other sane tweaks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "ISC",
   "repository": {
     "type": "git",

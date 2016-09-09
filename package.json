@@ -48,7 +48,7 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-eslint": "^6.1.2",
-    "eslint": "^3.2.2",
+    "eslint": "^3.5.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^1.11.1",
     "is-plain-obj": "^1.1.0",

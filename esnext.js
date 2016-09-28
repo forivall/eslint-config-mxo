@@ -1,14 +1,10 @@
 'use strict';
 
+var rules = JSON.parse(JSON.stringify(require('./index').rules));
+rules['comma-dangle'] = [2, 'only-multiline'];
+rules['babel/arrow-parens'] = [2, 'always'];
+
 module.exports = {
   extends: 'xo-space/esnext',
-  rules: {
-    'curly': [2, 'multi-line', 'consistent'],
-    'brace-style': [2, '1tbs', {allowSingleLine: true}],
-    'eqeqeq': [2, 'smart'],
-    'no-eq-null': [0],
-    'no-use-before-define': [1],
-    'comma-dangle': [2, 'only-multiline'],
-    'babel/arrow-parens': [2, 'always']
-  }
+  rules: rules
 };

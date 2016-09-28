@@ -27,7 +27,8 @@ test('browser', (t) => {
 
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
-  t.is(runEslint(fixture, conf).length, 0)
+  const messages = runEslint(fixture, conf)
+  t.is(messages.length, 0, JSON.stringify(messages))
 })
 
 test('esnext', (t) => {
@@ -46,6 +47,6 @@ test('ava', (t) => {
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
-  const errors = runEslint(`import test from 'ava'\n\ntest('main', (t) => {\n  t.pass()\n})\n`, conf)
-  t.is(errors.length, 0)
+  const messages = runEslint(`import test from 'ava'\n\ntest('main', (t) => {\n  t.pass()\n})\n`, conf)
+  t.is(messages.length, 0, JSON.stringify(messages))
 })

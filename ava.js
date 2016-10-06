@@ -5,10 +5,10 @@ module.exports = {
   extends: path.join(__dirname, 'esnext.js'),
   plugins: ['import'],
   rules: {
-    'semi': [1, 'never'],
-    'semi-spacing': [2, {before: false, after: true}],
-    'import/extensions': [1],
-    'max-lines': [0],
-    'no-unused-vars': [1]
+    'semi': ['warn', 'never'],
+    'semi-spacing': ['error', {before: false, after: true}],
+    'import/extensions': 'warn',
+    'max-lines': 'off',
+    'no-unused-vars': 'warn'
   }
 };

@@ -1,13 +1,15 @@
 'use strict';
 
 module.exports = {
-  extends: 'xo-space',
+  extends: 'xo',
   rules: {
-    'arrow-parens': [2, 'always'],
-    'brace-style': [2, '1tbs', {allowSingleLine: true}],
-    'curly': [2, 'multi-line', 'consistent'],
-    'eqeqeq': [2, 'smart'],
-    'no-eq-null': [0],
-    'no-use-before-define': [1]
+    'indent': ['error', 2, {SwitchCase: 1}],
+    'arrow-parens': ['error', 'always'],
+    'brace-style': ['error', '1tbs', {allowSingleLine: true}],
+    'curly': ['error', 'multi-line', 'consistent'],
+    'eqeqeq': ['error', 'smart'],
+    'func-names': 'off',
+    'no-eq-null': 'off',
+    'no-use-before-define': 'warn'
   }
 };

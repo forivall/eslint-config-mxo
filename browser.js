@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = {
-  extends: 'xo-space/browser',
+  extends: 'xo/browser',
   rules: require('./index').rules
 };

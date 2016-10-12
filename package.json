@@ -45,7 +45,7 @@
     "ava.js"
   ],
   "dependencies": {
-    "eslint-config-xo": "^0.16.0"
+    "eslint-config-xo": "^0.17.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",

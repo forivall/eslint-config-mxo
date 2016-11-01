@@ -2,6 +2,9 @@
 
 module.exports = {
   extends: 'xo',
+  plugins: [
+    'promise'
+  ],
   rules: {
     'indent': ['error', 2, {SwitchCase: 1}],
     'arrow-parens': ['error', 'always'],
@@ -10,6 +13,9 @@ module.exports = {
     'eqeqeq': ['error', 'smart'],
     'func-names': 'off',
     'no-eq-null': 'off',
-    'no-use-before-define': 'warn'
+    'no-use-before-define': 'warn',
+    'promise/no-native': 'error',
+    'promise/param-names': 'error',
+    'promise/catch-or-return': 'error'
   }
 };

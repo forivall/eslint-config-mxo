@@ -1,6 +1,9 @@
 'use strict';
 
+var base = require('./index');
+
 module.exports = {
   extends: 'xo/browser',
-  rules: require('./index').rules
+  plugins: base.plugins,
+  rules: base.rules
 };

@@ -20,12 +20,14 @@ Add some XO config to your `package.json`:
 {
   "name": "my-awesome-project",
   "xo": {
+    "esnext": false,
     "extends": "mxo",
     "overrides": [
       {
         "files": [
-          "test/*.test.js",
-          "test/!(helpers|fixtures)/**/*.test.js"
+          "**/*.test.js"
+          "test/*.js",
+          "test/!(helpers|fixtures)/**/*.js"
         ],
         "extends": "mxo/ava"
       }
@@ -34,7 +36,30 @@ Add some XO config to your `package.json`:
 }
 ```
 
-Or, using just `eslint`, add some ESLint config to your `package.json`:
+Or, if your runtime isn't ancient:
+
+```json
+{
+  "name": "my-awesome-project",
+  "xo": {
+    "extends": "mxo/esnext",
+    "overrides": [
+      {
+        "files": [
+          "**/*.test.js"
+          "test/*.js",
+          "test/!(helpers|fixtures)/**/*.js"
+        ],
+        "extends": "mxo/ava"
+      }
+    ]
+  }
+}
+```
+
+### ESLint Usage
+
+Using just `eslint`, add some ESLint config to your `package.json`:
 
 ```json
 {
@@ -81,7 +106,7 @@ Additionally [`mxo/ava`](ava.js) for ava test files:
 
 ## Credits
 
-[Jordan Klassen](https://github.com/forivall/)
+[Emily Klassen](https://github.com/forivall/)
 
 [Sindre Sorhus](https://sindresorhus.com) for the original xo ❤️
 

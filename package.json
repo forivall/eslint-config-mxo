@@ -10,7 +10,7 @@
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
-  "author": "Jordan Klassen <forivall@gmail.com>",
+  "author": "Emily Marigold Klassen <forivall@gmail.com>",
   "keywords": [
     "❤️",
     "space",
@@ -46,6 +46,7 @@
   ],
   "dependencies": {
     "eslint-config-xo": "^0.18.2",
+    "eslint-plugin-es5": "^1.0.1",
     "eslint-plugin-promise": "^3.3.0"
   },
   "devDependencies": {

@@ -14,6 +14,7 @@ module.exports = {
     'func-names': 'off',
     'no-eq-null': 'off',
     'no-use-before-define': 'warn',
+    'quote-props': ['error', 'consistent-as-needed'],
     'promise/no-native': 'error',
     'promise/param-names': 'error',
     'promise/catch-or-return': 'error'

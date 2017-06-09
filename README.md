@@ -25,9 +25,14 @@ Add some XO config to your `package.json`:
     "overrides": [
       {
         "files": [
-          "**/*.test.js"
-          "test/*.js",
-          "test/!(helpers|fixtures)/**/*.js"
+          "test.js",
+          "test-*.js",
+          "test",
+          "**/__tests__",
+          "**/*.test.js",
+          "!**/helpers/**",
+          "!**/fixtures/**",
+          "!**/_*.js"
         ],
         "extends": "mxo/ava"
       }
@@ -46,9 +51,14 @@ Or, if your runtime isn't ancient:
     "overrides": [
       {
         "files": [
-          "**/*.test.js"
-          "test/*.js",
-          "test/!(helpers|fixtures)/**/*.js"
+          "test.js",
+          "test-*.js",
+          "test",
+          "**/__tests__",
+          "**/*.test.js",
+          "!**/helpers/**",
+          "!**/fixtures/**",
+          "!**/_*.js"
         ],
         "extends": "mxo/ava"
       }

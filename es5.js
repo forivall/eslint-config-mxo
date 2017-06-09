@@ -3,6 +3,13 @@ var path = require('path');
 
 module.exports = {
   extends: path.join(__dirname, 'index.js'),
+  parserOptions: {
+    sourceType: 'script',
+    ecmaFeatures: {
+      jsx: false,
+      experimentalObjectRestSpread: false
+    }
+  },
   plugins: [
     'es5'
   ],

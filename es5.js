@@ -29,6 +29,7 @@ module.exports = {
     'es5/no-template-literals': 'error',
     'es5/no-typeof-symbol': 'error',
     'es5/no-unicode-regex': 'error',
-    'es5/no-exponentiation-operator': 'error'
+    'es5/no-exponentiation-operator': 'error',
+    'unicorn/prefer-starts-ends-with': 'off'
   }
 };

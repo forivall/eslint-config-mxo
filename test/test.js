@@ -50,3 +50,13 @@ test('ava', (t) => {
   const messages = runEslint(`import test from 'ava'\n\ntest('main', (t) => {\n  t.pass()\n})\n`, conf)
   t.is(messages.length, 0, JSON.stringify(messages))
 })
+
+test('es5', (t) => {
+  const conf = require('../es5')
+
+  t.true(isPlainObj(conf))
+  t.true(isPlainObj(conf.rules))
+
+  const messages = runEslint('\'use strict\';\nif (/^foo/.test(\'foobar\')) {\n  console.log(\'bar\');\n}\n', conf)
+  t.is(messages.length, 0, JSON.stringify(messages))
+})

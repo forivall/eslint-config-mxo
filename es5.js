@@ -1,13 +1,13 @@
-'use strict';
-var path = require('path');
+
+var path = require('path')
 
 // Fix for npm2 environments
-var eslintPlugins;
+var eslintPlugins
 try {
-  eslintPlugins = require('eslint/lib/config/plugins');
+  eslintPlugins = require('eslint/lib/config/plugins')
 } catch (err) {}
 if (eslintPlugins) {
-  eslintPlugins.define('eslint-plugin-es5', require('eslint-plugin-es5'));
+  eslintPlugins.define('eslint-plugin-es5', require('eslint-plugin-es5'))
 }
 
 module.exports = {
@@ -23,6 +23,7 @@ module.exports = {
     'es5'
   ],
   rules: {
+    'comma-dangle': ['error', 'never'],
     'es5/no-arrow-functions': 'error',
     'es5/no-block-scoping': 'error',
     'es5/no-classes': 'error',
@@ -41,4 +42,4 @@ module.exports = {
     'es5/no-exponentiation-operator': 'error',
     'unicorn/prefer-starts-ends-with': 'off'
   }
-};
+}

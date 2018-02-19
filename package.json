@@ -36,14 +36,14 @@
   "scripts": {
     "test": "ava",
     "posttest": "npm run lint",
-    "lint": "eslint -c ./index.js --ignore-pattern test . && eslint -c ./ava.js test"
+    "lint": "eslint -c ./lazy.js --ignore-pattern test . && eslint -c ./ava.js test"
   },
   "files": [
     "index.js",
     "ava.js",
     "browser.js",
     "es5.js",
-    "esnext.js"
+    "lazy.js"
   ],
   "dependencies": {
     "eslint-config-xo": "^0.18.2",

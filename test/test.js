@@ -31,13 +31,13 @@ test('browser', (t) => {
   t.is(messages.length, 0, JSON.stringify(messages))
 })
 
-test('esnext', (t) => {
-  const conf = require('../esnext')
+test('lazy', (t) => {
+  const conf = require('../lazy')
 
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
-  const errors = runEslint('class Foo {}\n', conf)
+  const errors = runEslint('const Foo = class {}\n', conf)
   t.is(errors[0].ruleId, 'no-unused-vars')
 })
 

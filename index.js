@@ -1,4 +1,3 @@
-'use strict';
 
 module.exports = {
   extends: 'xo',
@@ -10,6 +9,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'brace-style': ['error', '1tbs', {allowSingleLine: true}],
     'curly': ['error', 'multi-line', 'consistent'],
+    'comma-dangle': ['error', 'only-multiline'],
     'eqeqeq': ['error', 'smart'],
     'func-names': 'off',
     'no-eq-null': 'off',
@@ -19,4 +19,4 @@ module.exports = {
     'promise/param-names': 'error',
     'promise/catch-or-return': 'error'
   }
-};
+}

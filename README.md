@@ -20,34 +20,7 @@ Add some XO config to your `package.json`:
 {
   "name": "my-awesome-project",
   "xo": {
-    "esnext": false,
     "extends": "mxo",
-    "overrides": [
-      {
-        "files": [
-          "test.js",
-          "test-*.js",
-          "test",
-          "**/__tests__",
-          "**/*.test.js",
-          "!**/helpers/**",
-          "!**/fixtures/**",
-          "!**/_*.js"
-        ],
-        "extends": "mxo/ava"
-      }
-    ]
-  }
-}
-```
-
-Or, if your runtime isn't ancient:
-
-```json
-{
-  "name": "my-awesome-project",
-  "xo": {
-    "extends": "mxo/esnext",
     "overrides": [
       {
         "files": [
@@ -88,16 +61,6 @@ Or to `.eslintrc`:
 }
 ```
 
-Supports parsing ES2015, but doesn't enforce it by default.
-
-This package also exposes [`mxo/esnext`](esnext.js) if you want ES2015+ rules:
-
-```json
-{
-  "extends": "mxo/esnext"
-}
-```
-
 And [`mxo/browser`](browser.js) if you're in the browser:
 
 ```json
@@ -111,6 +74,14 @@ Additionally [`mxo/ava`](ava.js) for ava test files:
 ```json
 {
   "extends": "mxo/ava"
+}
+```
+
+And [`mxo/lazy`](lazy.js) because I don't like semicolons anymore:
+
+```json
+{
+  "extends": "mxo/lazy"
 }
 ```
 

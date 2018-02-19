@@ -9,6 +9,6 @@ module.exports = {
     'semi-spacing': ['error', {before: false, after: true}],
     'import/extensions': 'warn',
     'max-lines': 'off',
-    'no-unused-vars': 'warn'
+    'no-unused-vars': 'warn',
   }
 }

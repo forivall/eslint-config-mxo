@@ -3,7 +3,22 @@ import isPlainObj from 'is-plain-obj'
 import eslint from 'eslint'
 import tempWrite from 'temp-write'
 
-const fixture = `'use strict';\nconst x = true;\n\nif (x) {\n  console.log();\n}\n`
+const fixture = `
+const x = true;
+if (x) {
+  console
+  .log()
+  ;
+}
+const y = 1;
+switch (y) {
+  case 1:
+    console.log();
+    break;
+  default:
+    console.log();
+}
+`.replace(/^\n/, '')
 
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({

@@ -6,5 +6,6 @@ module.exports = {
   rules: {
     'semi': ['warn', 'never'],
     'semi-spacing': ['error', {before: false, after: true}],
+    'semi-style': ['error', 'first'],
   }
 }

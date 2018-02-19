@@ -1,15 +1,6 @@
 
 var path = require('path')
 
-// Fix for npm2 environments
-var eslintPlugins
-try {
-  eslintPlugins = require('eslint/lib/config/plugins')
-} catch (err) {}
-if (eslintPlugins) {
-  eslintPlugins.define('eslint-plugin-es5', require('eslint-plugin-es5'))
-}
-
 module.exports = {
   extends: path.join(__dirname, 'index.js'),
   parserOptions: {

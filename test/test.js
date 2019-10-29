@@ -10,50 +10,48 @@ if (x) {
   .log()
   ;
 }
+
 const y = 1;
 switch (y) {
   case 1:
-    console.log();
-    break;
+    console.log()
+    break
   default:
-    console.log();
+    console.log()
 }
 `.replace(/^\n/, '')
 
-function runEslint(str, conf) {
-  const linter = new eslint.CLIEngine({
+function runEslint(str, conf, options) {
+  const linter = new eslint.CLIEngine(Object.assign({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(conf))
-  })
+  }, options || {}))
 
   return linter.executeOnText(str).results[0].messages
 }
+
+const rootOptions = {
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+  },
+}
+
+test('full', (t) => {
+  const conf = require('../full')
+
+  t.true(isPlainObj(conf))
+  const messages = runEslint(fixture, conf);
+  t.is(messages.length, 0, JSON.stringify(messages));
+})
 
 test('main', (t) => {
   const conf = require('../')
 
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
-  t.is(runEslint(fixture, conf).length, 0)
-})
-
-test('browser', (t) => {
-  const conf = require('../browser')
-
-  t.true(isPlainObj(conf))
-  t.true(isPlainObj(conf.rules))
-  const messages = runEslint(fixture, conf)
-  t.is(messages.length, 0, JSON.stringify(messages))
-})
-
-test('lazy', (t) => {
-  const conf = require('../lazy')
-
-  t.true(isPlainObj(conf))
-  t.true(isPlainObj(conf.rules))
-
-  const errors = runEslint('const Foo = class {}\n', conf)
-  t.is(errors[0].ruleId, 'no-unused-vars')
+  const messages = runEslint(fixture, conf, rootOptions);
+  t.is(messages.length, 0, JSON.stringify(messages));
 })
 
 test('ava', (t) => {
@@ -62,16 +60,11 @@ test('ava', (t) => {
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
-  const messages = runEslint(`import test from 'ava'\n\ntest('main', (t) => {\n  t.pass()\n})\n`, conf)
-  t.is(messages.length, 0, JSON.stringify(messages))
+  const messages = runEslint(`import test from 'ava'
+
+test('main', (t) => {
+  t.pass()
 })
-
-test('es5', (t) => {
-  const conf = require('../es5')
-
-  t.true(isPlainObj(conf))
-  t.true(isPlainObj(conf.rules))
-
-  const messages = runEslint('\'use strict\';\nif (/^foo/.test(\'foobar\')) {\n  console.log(\'bar\');\n}\n', conf)
+`, conf, rootOptions)
   t.is(messages.length, 0, JSON.stringify(messages))
 })

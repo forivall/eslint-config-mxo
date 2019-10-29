@@ -1,4 +1,3 @@
-
 module.exports = {
   plugins: ['promise'],
   rules: {
@@ -11,5 +10,5 @@ module.exports = {
     'promise/param-names': 'error',
     'promise/catch-or-return': 'error',
     'promise/no-return-wrap': ['error', {allowReject: true}],
-  }
+  },
 }

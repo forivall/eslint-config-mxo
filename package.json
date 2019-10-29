@@ -37,8 +37,8 @@
     "test": "ava",
     "posttest": "npm run lint",
     "lint": "npm run lint:src && npm run lint:test",
-    "lint:src": "eslint -c prettier -c ./full/index.js --ignore-pattern test .",
-    "lint:test": "eslint -c prettier -c ./full/ava.js --parser-options=ecmaVersion:6,sourceType:module test"
+    "lint:src": "eslint -c ./full/index.js --ignore-pattern test .",
+    "lint:test": "eslint -c ./full/ava.js --parser-options=ecmaVersion:6,sourceType:module test"
   },
   "files": [
     "index.js",
@@ -54,7 +54,10 @@
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
     "is-plain-obj": "^2.0.0",
+    "prettier": "^1.18.2",
+    "temp-dir": "^2.0.0",
     "temp-write": "^4.0.0"
   },
   "peerDependencies": {

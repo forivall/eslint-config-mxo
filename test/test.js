@@ -4,14 +4,14 @@ import eslint from 'eslint'
 import tempWrite from 'temp-write'
 
 const fixture = `
-const x = true;
+const x = true
 if (x) {
-  console
-  .log()
-  ;
+  console.log()
 }
 
-const y = 1;
+if (x) console.log()
+
+const y = 1
 switch (y) {
   case 1:
     console.log()
@@ -22,10 +22,16 @@ switch (y) {
 `.replace(/^\n/, '')
 
 function runEslint(str, conf, options) {
-  const linter = new eslint.CLIEngine(Object.assign({
-    useEslintrc: false,
-    configFile: tempWrite.sync(JSON.stringify(conf))
-  }, options || {}))
+  const configFile = tempWrite.sync(JSON.stringify(conf))
+  const linter = new eslint.CLIEngine(
+    Object.assign(
+      {
+        configFile,
+        useEslintrc: false,
+      },
+      options || {},
+    ),
+  )
 
   return linter.executeOnText(str).results[0].messages
 }
@@ -41,8 +47,8 @@ test('full', (t) => {
   const conf = require('../full')
 
   t.true(isPlainObj(conf))
-  const messages = runEslint(fixture, conf);
-  t.is(messages.length, 0, JSON.stringify(messages));
+  const messages = runEslint(fixture, conf)
+  t.is(messages.length, 0, JSON.stringify(messages))
 })
 
 test('main', (t) => {
@@ -50,8 +56,8 @@ test('main', (t) => {
 
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
-  const messages = runEslint(fixture, conf, rootOptions);
-  t.is(messages.length, 0, JSON.stringify(messages));
+  const messages = runEslint(fixture, conf, rootOptions)
+  t.is(messages.length, 0, JSON.stringify(messages))
 })
 
 test('ava', (t) => {
@@ -60,11 +66,15 @@ test('ava', (t) => {
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
-  const messages = runEslint(`import test from 'ava'
+  const messages = runEslint(
+    `import test from 'ava'
 
 test('main', (t) => {
   t.pass()
 })
-`, conf, rootOptions)
+`,
+    conf,
+    rootOptions,
+  )
   t.is(messages.length, 0, JSON.stringify(messages))
 })

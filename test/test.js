@@ -21,6 +21,14 @@ switch (y) {
 }
 `.replace(/^\n/, '')
 
+const avaFixture = `
+import test from 'ava'
+
+test('main', (t) => {
+  t.pass()
+})
+`.replace(/^\n/, '')
+
 function runEslint(str, conf, options) {
   const configFile = tempWrite.sync(JSON.stringify(conf))
   const linter = new eslint.CLIEngine(
@@ -29,8 +37,8 @@ function runEslint(str, conf, options) {
         configFile,
         useEslintrc: false,
       },
-      options || {},
-    ),
+      options || {}
+    )
   )
 
   return linter.executeOnText(str).results[0].messages
@@ -66,15 +74,6 @@ test('ava', (t) => {
   t.true(isPlainObj(conf))
   t.true(isPlainObj(conf.rules))
 
-  const messages = runEslint(
-    `import test from 'ava'
-
-test('main', (t) => {
-  t.pass()
-})
-`,
-    conf,
-    rootOptions,
-  )
+  const messages = runEslint(avaFixture, conf, rootOptions)
   t.is(messages.length, 0, JSON.stringify(messages))
 })
